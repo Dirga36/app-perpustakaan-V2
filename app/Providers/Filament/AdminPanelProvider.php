@@ -9,7 +9,6 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -18,6 +17,9 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+
+use Openplain\FilamentShadcnTheme\Color;
+use Filament\Support\Colors\Color as ColorsColor;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -28,8 +30,14 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('App Perpustakaan')
             ->colors([
-                'primary' => Color::Amber,
+                'danger' => Color::Red,
+                'gray' => ColorsColor::Zinc,
+                'info' => Color::Blue,
+                'primary' => Color::Default,
+                'success' => Color::Green,
+                'warning' => ColorsColor::Amber,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
