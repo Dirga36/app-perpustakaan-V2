@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Books\Schemas;
 
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -14,16 +16,26 @@ class BookForm
                 TextInput::make('title')
                     ->required(),
                 TextInput::make('authorName')
+                    ->label('Author Name')
                     ->required(),
                 TextInput::make('ISBN')
+                    ->label('ISBN')
                     ->required(),
                 TextInput::make('publishedYear')
-                    ->required(),
-                TextInput::make('coverImage')
-                    ->required(),
-                TextInput::make('category_id')
+                    ->label('Published Year')
                     ->required()
                     ->numeric(),
+                FileUpload::make('coverImage')
+                    ->label('Cover Image')
+                    ->image()
+                    ->directory('books/covers')
+                    ->required(),
+                Select::make('category_id')
+                    ->label('Category')
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
             ]);
     }
 }

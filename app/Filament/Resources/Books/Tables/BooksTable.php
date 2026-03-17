@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
@@ -20,15 +21,18 @@ class BooksTable
                 TextColumn::make('title')
                     ->searchable(),
                 TextColumn::make('authorName')
+                    ->label('Author Name')
                     ->searchable(),
                 TextColumn::make('ISBN')
                     ->searchable(),
                 TextColumn::make('publishedYear')
+                    ->label('Published Year')
                     ->searchable(),
-                TextColumn::make('coverImage')
-                    ->searchable(),
-                TextColumn::make('category_id')
-                    ->numeric()
+                ImageColumn::make('coverImage')
+                    ->label('Cover Image'),
+                TextColumn::make('category.name')
+                    ->label('Category')
+                    ->searchable()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

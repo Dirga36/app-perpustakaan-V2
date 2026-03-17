@@ -10,9 +10,9 @@ class Book extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class, 'category_book');
+        return $this->belongsTo(Category::class);
     }
 
     protected $fillable = [
@@ -21,5 +21,6 @@ class Book extends Model
         'ISBN',
         'publishedYear',
         'coverImage',
+        'category_id',
     ];
 }
