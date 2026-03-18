@@ -29,12 +29,12 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandName('Project Library')
+            ->brandName('Project Library VI')
             ->colors([
                 'danger' => Color::Red,
                 'gray' => ColorsColor::Zinc,
                 'info' => Color::Blue,
-                'primary' => Color::Default,
+                'primary' => '#004380',
                 'success' => Color::Green,
                 'warning' => ColorsColor::Amber,
             ])
