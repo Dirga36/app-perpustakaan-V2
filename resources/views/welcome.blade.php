@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Project Library VI') }}</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,246 +19,33 @@
             </style>
         @endif
     </head>
-    <body>
-        <style>
-            :root {
-                --bg: #f4efe7;
-                --ink: #1f2937;
-                --paper: #fffdf7;
-                --accent: #004380;
-                --muted: #6b7280;
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            body {
-                margin: 0;
-                min-height: 100vh;
-                font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-                color: var(--ink);
-                background:
-                    radial-gradient(circle at 8% 12%, #f9d8a7 0%, transparent 32%),
-                    radial-gradient(circle at 92% 85%, #c9e6ff 0%, transparent 28%),
-                    var(--bg);
-            }
-
-            .container {
-                width: min(980px, calc(100% - 2rem));
-                margin: 0 auto;
-                padding: 2rem 0 3rem;
-            }
-
-            .topbar {
-                display: flex;
-                justify-content: flex-end;
-                margin-bottom: 2.5rem;
-            }
-
-            .topbar nav {
-                display: flex;
-                gap: 0.75rem;
-            }
-
-            .btn {
-                display: inline-block;
-                border-radius: 999px;
-                padding: 0.65rem 1rem;
-                text-decoration: none;
-                font-size: 0.95rem;
-                font-weight: 600;
-                transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-            }
-
-            .btn:hover {
-                transform: translateY(-1px);
-            }
-
-            .btn-primary {
-                background: var(--accent);
-                color: #ffffff;
-                box-shadow: 0 10px 24px rgba(0, 67, 128, 0.2);
-            }
-
-            .btn-primary:hover {
-                background: #003665;
-            }
-
-            .btn-soft {
-                background: rgba(255, 255, 255, 0.7);
-                color: var(--ink);
-                border: 1px solid rgba(31, 41, 55, 0.15);
-            }
-
-            .hero {
-                background: var(--paper);
-                border: 1px solid rgba(31, 41, 55, 0.12);
-                border-radius: 24px;
-                padding: 2.25rem;
-                box-shadow: 0 14px 38px rgba(31, 41, 55, 0.08);
-            }
-
-            .badge {
-                display: inline-block;
-                border-radius: 999px;
-                padding: 0.4rem 0.8rem;
-                background: #eaf5ff;
-                color: #0b4f86;
-                font-size: 0.8rem;
-                font-weight: 700;
-                margin-bottom: 1rem;
-            }
-
-            h1 {
-                margin: 0;
-                font-size: clamp(1.85rem, 4vw, 3rem);
-                line-height: 1.15;
-                letter-spacing: -0.02em;
-            }
-
-            .lead {
-                margin: 1rem 0 1.6rem;
-                max-width: 62ch;
-                color: var(--muted);
-                line-height: 1.6;
-            }
-
-            .actions {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.75rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .stats {
-                display: grid;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 0.75rem;
-            }
-
-            .stat {
-                padding: 0.9rem;
-                border-radius: 14px;
-                border: 1px solid rgba(31, 41, 55, 0.12);
-                background: #fff;
-            }
-
-            .stat strong {
-                display: block;
-                font-size: 1rem;
-                margin-bottom: 0.2rem;
-            }
-
-            .stat span {
-                font-size: 0.85rem;
-                color: var(--muted);
-            }
-
-            .features {
-                margin-top: 1rem;
-                display: grid;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 0.75rem;
-            }
-
-            .feature {
-                background: rgba(255, 255, 255, 0.75);
-                border: 1px solid rgba(31, 41, 55, 0.1);
-                border-radius: 14px;
-                padding: 1rem;
-            }
-
-            .feature h2 {
-                margin: 0 0 0.45rem;
-                font-size: 1rem;
-            }
-
-            .feature p {
-                margin: 0;
-                color: var(--muted);
-                font-size: 0.9rem;
-                line-height: 1.5;
-            }
-
-            @media (max-width: 760px) {
-                .container {
-                    padding-top: 1.2rem;
-                }
-
-                .hero {
-                    padding: 1.35rem;
-                    border-radius: 18px;
-                }
-
-                .stats,
-                .features {
-                    grid-template-columns: 1fr;
-                }
-            }
-        </style>
-
-        <div class="container">
-            <header class="topbar">
-                @if (Route::has('filament.admin.auth.login'))
-                    <nav>
-                        @auth
-                            <a href="{{ route('filament.admin.pages.dashboard') }}" class="btn btn-primary">Dashboard</a>
-                        @else
-                            <a href="{{ route('filament.admin.auth.login') }}" class="btn btn-soft">Log in</a>
-                        @endauth
-                    </nav>
-                @endif
-            </header>
-
-            <main class="hero">
-                <span class="badge">Project Library VI</span>
-                <h1>Satu Tempat Untuk Kelola Data Buku Dan Kategori</h1>
-                <p class="lead">
-                    Sistem informasi perpustakaan sederhana untuk mencatat koleksi buku, mengatur kategori,
-                    dan mempermudah pengelolaan data melalui panel admin.
-                </p>
-
-                <div class="actions">
-                    @if (Route::has('filament.admin.auth.login'))
-                        @auth
-                            <a href="{{ route('filament.admin.pages.dashboard') }}" class="btn btn-primary">Masuk Ke Dashboard</a>
-                        @else
-                            <a href="{{ route('filament.admin.auth.login') }}" class="btn btn-primary">Mulai Dari Admin Panel</a>
-                        @endauth
-                    @endif
-                </div>
-
-                <section class="stats" aria-label="Ringkasan cepat">
-                    <div class="stat">
-                        <strong>Manajemen Buku</strong>
-                        <span>Input judul, penulis, ISBN, tahun terbit, dan cover.</span>
-                    </div>
-                    <div class="stat">
-                        <strong>Kategori Tertata</strong>
-                        <span>Kelompokkan koleksi buku agar pencarian lebih mudah.</span>
-                    </div>
-                    <div class="stat">
-                        <strong>Soft Delete</strong>
-                        <span>Data terhapus masih bisa dipulihkan dari panel admin.</span>
-                    </div>
-                </section>
-            </main>
-
-            <section class="features" aria-label="Fitur utama">
-                <article class="feature">
-                    <h2>Antarmuka Ringan</h2>
-                    <p>Landing page fokus pada akses cepat ke sistem tanpa elemen yang berlebihan.</p>
-                </article>
-                <article class="feature">
-                    <h2>Siap Mobile</h2>
-                    <p>Tata letak menyesuaikan layar kecil agar tetap nyaman dibaca dan digunakan.</p>
-                </article>
-                <article class="feature">
-                    <h2>Warna Konsisten</h2>
-                    <p>Warna utama mengikuti identitas panel admin agar pengalaman terasa menyatu.</p>
-                </article>
-            </section>
+    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+            @if (Route::has('filament.admin.auth.login'))
+                <nav class="flex items-center justify-end gap-4">
+                    @auth
+                        <a
+                            href="{{ url('filament.admin.pages.dashboard') }}"
+                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+                        >
+                            Dashboard
+                        </a>
+                    @else
+                        <a
+                            href="{{ route('filament.admin.auth.login') }}"
+                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
+                        >
+                            Log in
+                        </a>
+                    @endauth
+                </nav>
+            @endif
+        </header>
+        <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
         </div>
+
+        @if (Route::has('filament.admin.auth.login'))
+            <div class="h-14.5 hidden lg:block"></div>
+        @endif
     </body>
 </html>
