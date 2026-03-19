@@ -1,5 +1,5 @@
 <x-layouts.public :title="$book->title">
-    <a href="{{ route('public.books.index') }}" class="mb-5 inline-flex text-sm font-bold text-slate-700 hover:text-orange-700">
+    <a href="{{ route('public.books.index') }}" class="mb-5 inline-flex text-sm font-bold text-slate-700 hover:text-blue-700">
         ← Back to catalog
     </a>
 
@@ -15,7 +15,7 @@
         </div>
 
         <div class="card-frost rounded-3xl p-6 sm:p-8">
-            <p class="text-xs font-semibold uppercase tracking-wider text-orange-700">
+            <p class="text-xs font-semibold uppercase tracking-wider text-blue-700">
                 {{ $book->category?->name ?? 'Uncategorized' }}
             </p>
             <h1 class="font-display mt-2 text-4xl font-bold text-slate-900">{{ $book->title }}</h1>

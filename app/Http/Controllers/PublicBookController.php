@@ -10,11 +10,26 @@ class PublicBookController extends Controller
 {
     public function index(Request $request)
     {
-        $search = trim((string) $request->string('search'));
-        $selectedCategory = $request->integer('category');
-        $sort = (string) $request->string('sort', 'latest');
+        $allowedSorts = ['latest', 'oldest', 'title_asc', 'title_desc', 'year_desc', 'year_asc'];
 
-        if (! in_array($sort, ['latest', 'oldest', 'title_asc', 'title_desc', 'year_desc', 'year_asc'], true)) {
+        $search = preg_replace('/\s+/', ' ', trim((string) $request->query('search', '')));
+        $search = mb_substr($search ?? '', 0, 120);
+
+        $categoryInput = filter_var(
+            $request->query('category'),
+            FILTER_VALIDATE_INT,
+            ['options' => ['min_range' => 1]],
+        );
+
+        $selectedCategory = $categoryInput !== false ? (int) $categoryInput : null;
+
+        if ($selectedCategory !== null && ! Category::query()->whereKey($selectedCategory)->exists()) {
+            $selectedCategory = null;
+        }
+
+        $sort = (string) $request->query('sort', 'latest');
+
+        if (! in_array($sort, $allowedSorts, true)) {
             $sort = 'latest';
         }
 
@@ -28,7 +43,7 @@ class PublicBookController extends Controller
                         ->orWhere('ISBN', 'like', "%{$search}%");
                 });
             })
-            ->when($selectedCategory > 0, function ($query) use ($selectedCategory) {
+            ->when($selectedCategory !== null, function ($query) use ($selectedCategory) {
                 $query->where('category_id', $selectedCategory);
             });
 

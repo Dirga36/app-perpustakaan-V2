@@ -2,7 +2,7 @@
     <section class="mb-10 overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-7 shadow-sm sm:p-10">
         <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-                <p class="mb-3 inline-flex rounded-full bg-orange-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-orange-700">
+                <p class="mb-3 inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-blue-800">
                     Welcome to BookNest
                 </p>
                 <h1 class="font-display text-4xl font-bold leading-tight text-slate-900 sm:text-5xl">
@@ -45,7 +45,7 @@
                 <h2 class="font-display text-3xl font-bold text-slate-900">Recently Added Books</h2>
                 <p class="mt-1 text-slate-600">Fresh picks from the collection.</p>
             </div>
-            <a href="{{ route('public.books.index') }}" class="text-sm font-bold text-orange-700 hover:text-orange-800">
+            <a href="{{ route('public.books.index') }}" class="text-sm font-bold text-blue-700 hover:text-blue-800">
                 View all books
             </a>
         </div>
@@ -65,13 +65,13 @@
                     <article class="card-frost overflow-hidden rounded-2xl shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                         <img src="{{ $coverUrl }}" alt="Cover of {{ $book->title }}" class="h-56 w-full object-cover">
                         <div class="p-4">
-                            <p class="text-xs font-semibold uppercase tracking-wider text-orange-700">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-blue-700">
                                 {{ $book->category?->name ?? 'Uncategorized' }}
                             </p>
                             <h3 class="mt-1 line-clamp-2 text-lg font-bold text-slate-900">{{ $book->title }}</h3>
                             <p class="mt-1 text-sm text-slate-600">By {{ $book->authorName }}</p>
                             <a href="{{ route('public.books.show', $book) }}"
-                                class="mt-4 inline-flex text-sm font-bold text-slate-900 hover:text-orange-700">
+                                class="mt-4 inline-flex text-sm font-bold text-slate-900 hover:text-blue-700">
                                 Read metadata preview
                             </a>
                         </div>

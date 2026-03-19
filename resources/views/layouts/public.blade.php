@@ -13,17 +13,17 @@
         :root {
             --portal-ink: #102a43;
             --portal-surface: #f7f9fc;
-            --portal-accent: #ff7a18;
-            --portal-accent-dark: #c2410c;
+            --portal-accent: #004380;
+            --portal-accent-dark: #0a5ba8;
         }
 
         body {
             font-family: 'Manrope', sans-serif;
             color: var(--portal-ink);
             background:
-                radial-gradient(circle at 10% 15%, #ffd9b6 0%, transparent 36%),
-                radial-gradient(circle at 90% 10%, #d8e4ff 0%, transparent 30%),
-                radial-gradient(circle at 80% 90%, #ffe6d6 0%, transparent 26%),
+                radial-gradient(circle at 10% 15%, #d6e6ff 0%, transparent 36%),
+                radial-gradient(circle at 90% 10%, #c9dcff 0%, transparent 30%),
+                radial-gradient(circle at 80% 90%, #d9ecff 0%, transparent 26%),
                 var(--portal-surface);
         }
 

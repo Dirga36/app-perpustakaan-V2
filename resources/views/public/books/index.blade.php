@@ -10,10 +10,10 @@
 
         <form method="GET" action="{{ route('public.books.index') }}" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <input type="text" name="search" value="{{ $search }}" placeholder="Search title, author, ISBN"
-                class="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 outline-none ring-orange-300 transition focus:ring-2">
+                class="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 outline-none ring-blue-300 transition focus:ring-2">
 
             <select name="category"
-                class="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 outline-none ring-orange-300 transition focus:ring-2">
+                class="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 outline-none ring-blue-300 transition focus:ring-2">
                 <option value="">All categories</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}" @selected($selectedCategory === $category->id)>
@@ -23,7 +23,7 @@
             </select>
 
             <select name="sort"
-                class="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 outline-none ring-orange-300 transition focus:ring-2">
+                class="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 outline-none ring-blue-300 transition focus:ring-2">
                 <option value="latest" @selected($sort === 'latest')>Latest</option>
                 <option value="oldest" @selected($sort === 'oldest')>Oldest</option>
                 <option value="title_asc" @selected($sort === 'title_asc')>Title A-Z</option>
@@ -54,7 +54,7 @@
                 <article class="card-frost overflow-hidden rounded-2xl shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <img src="{{ $coverUrl }}" alt="Cover of {{ $book->title }}" class="h-56 w-full object-cover">
                     <div class="p-4">
-                        <p class="text-xs font-semibold uppercase tracking-wider text-orange-700">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-blue-700">
                             {{ $book->category?->name ?? 'Uncategorized' }}
                         </p>
                         <h2 class="mt-1 line-clamp-2 text-lg font-bold text-slate-900">{{ $book->title }}</h2>
@@ -62,7 +62,7 @@
                         <p class="mt-1 text-sm text-slate-500">Published: {{ $book->publishedYear }}</p>
 
                         <a href="{{ route('public.books.show', $book) }}"
-                            class="mt-4 inline-flex text-sm font-bold text-slate-900 hover:text-orange-700">
+                            class="mt-4 inline-flex text-sm font-bold text-slate-900 hover:text-blue-700">
                             Open detail
                         </a>
                     </div>

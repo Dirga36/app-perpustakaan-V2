@@ -3,7 +3,7 @@
         <p>© {{ now()->year }} BookNest Public Portal. Built for curious readers.</p>
         <p>
             Need help? Reach us via
-            <a href="mailto:hello@booknest.test" class="font-semibold text-orange-700 hover:text-orange-800">
+            <a href="mailto:hello@booknest.test" class="font-semibold text-blue-700 hover:text-blue-800">
                 hello@booknest.test
             </a>
         </p>

@@ -1,6 +1,6 @@
 <x-layouts.public title="About & Contact">
     <section class="mb-8 rounded-3xl border border-slate-200/70 bg-white/80 p-7 shadow-sm sm:p-10">
-        <p class="mb-3 inline-flex rounded-full bg-orange-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-orange-700">
+        <p class="mb-3 inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-blue-800">
             About this portal
         </p>
         <h1 class="font-display text-4xl font-bold text-slate-900">A simple public window into the library collection.</h1>
@@ -29,7 +29,7 @@
             <dl class="mt-5 space-y-3 text-sm text-slate-700">
                 <div>
                     <dt class="font-semibold">Email</dt>
-                    <dd><a href="mailto:hello@booknest.test" class="text-orange-700 hover:text-orange-800">hello@booknest.test</a></dd>
+                    <dd><a href="mailto:hello@booknest.test" class="text-blue-700 hover:text-blue-800">hello@booknest.test</a></dd>
                 </div>
                 <div>
                     <dt class="font-semibold">Phone</dt>
