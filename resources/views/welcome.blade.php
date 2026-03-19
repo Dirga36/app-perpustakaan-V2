@@ -29,4 +29,4 @@
                 © {{ date('Y') }} Project library VI. All rights reserved.
             </div>
         </footer>
-    @endsection
+@endsection
