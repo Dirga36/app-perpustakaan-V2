@@ -8,7 +8,7 @@
             <p class="text-sm font-semibold text-slate-500">{{ $books->total() }} result(s)</p>
         </div>
 
-        <form method="GET" action="{{ route('public.books.index') }}" class="grid gap-3 sm:grid-cols-3">
+        <form method="GET" action="{{ route('public.books.index') }}" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <input type="text" name="search" value="{{ $search }}" placeholder="Search title, author, ISBN"
                 class="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 outline-none ring-orange-300 transition focus:ring-2">
 
@@ -20,6 +20,16 @@
                         {{ $category->name }}
                     </option>
                 @endforeach
+            </select>
+
+            <select name="sort"
+                class="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 outline-none ring-orange-300 transition focus:ring-2">
+                <option value="latest" @selected($sort === 'latest')>Latest</option>
+                <option value="oldest" @selected($sort === 'oldest')>Oldest</option>
+                <option value="title_asc" @selected($sort === 'title_asc')>Title A-Z</option>
+                <option value="title_desc" @selected($sort === 'title_desc')>Title Z-A</option>
+                <option value="year_desc" @selected($sort === 'year_desc')>Published Year (Newest)</option>
+                <option value="year_asc" @selected($sort === 'year_asc')>Published Year (Oldest)</option>
             </select>
 
             <button type="submit"

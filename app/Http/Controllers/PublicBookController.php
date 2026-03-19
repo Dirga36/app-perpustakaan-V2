@@ -12,8 +12,13 @@ class PublicBookController extends Controller
     {
         $search = trim((string) $request->string('search'));
         $selectedCategory = $request->integer('category');
+        $sort = (string) $request->string('sort', 'latest');
 
-        $books = Book::query()
+        if (! in_array($sort, ['latest', 'oldest', 'title_asc', 'title_desc', 'year_desc', 'year_asc'], true)) {
+            $sort = 'latest';
+        }
+
+        $booksQuery = Book::query()
             ->with('category')
             ->when($search !== '', function ($query) use ($search) {
                 $query->where(function ($bookQuery) use ($search) {
@@ -25,8 +30,18 @@ class PublicBookController extends Controller
             })
             ->when($selectedCategory > 0, function ($query) use ($selectedCategory) {
                 $query->where('category_id', $selectedCategory);
-            })
-            ->latest()
+            });
+
+        $booksQuery = match ($sort) {
+            'oldest' => $booksQuery->oldest(),
+            'title_asc' => $booksQuery->orderBy('title'),
+            'title_desc' => $booksQuery->orderByDesc('title'),
+            'year_desc' => $booksQuery->orderByDesc('publishedYear')->orderByDesc('created_at'),
+            'year_asc' => $booksQuery->orderBy('publishedYear')->orderByDesc('created_at'),
+            default => $booksQuery->latest(),
+        };
+
+        $books = $booksQuery
             ->paginate(12)
             ->withQueryString();
 
@@ -39,6 +54,7 @@ class PublicBookController extends Controller
             'categories' => $categories,
             'search' => $search,
             'selectedCategory' => $selectedCategory,
+            'sort' => $sort,
         ]);
     }
 

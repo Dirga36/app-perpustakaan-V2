@@ -15,7 +15,7 @@ class PublicHomeController extends Controller
             ->take(6)
             ->get();
 
-        return view('public.home', [
+        return view('welcome', [
             'latestBooks' => $latestBooks,
             'totalBooks' => Book::count(),
             'totalCategories' => Category::count(),
