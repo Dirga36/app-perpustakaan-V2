@@ -30,6 +30,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->brandName('Project Library VI')
+            ->brandLogo(asset('logo.svg'))
+            ->darkModeBrandLogo(asset('logo.svg'))
             ->colors([
                 'danger' => Color::Red,
                 'gray' => ColorsColor::Zinc,

@@ -29,6 +29,8 @@ class BookForm
                     ->label('Cover Image')
                     ->image()
                     ->directory('books/covers')
+                    ->disk('public')
+                    ->visibility('public')
                     ->required(),
                 Select::make('category_id')
                     ->label('Category')

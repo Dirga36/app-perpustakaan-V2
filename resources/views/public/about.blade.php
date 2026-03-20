@@ -5,7 +5,7 @@
         </p>
         <h1 class="font-display text-4xl font-bold text-slate-900">A simple public window into the library collection.</h1>
         <p class="mt-4 max-w-3xl text-slate-600">
-            BookNest helps visitors browse books by category and inspect metadata before any full-reader feature is introduced.
+            Project Library VI helps visitors browse books by category and inspect metadata before any full-reader feature is introduced.
             This keeps the public experience fast, clear, and focused on discoverability.
         </p>
     </section>
@@ -29,7 +29,7 @@
             <dl class="mt-5 space-y-3 text-sm text-slate-700">
                 <div>
                     <dt class="font-semibold">Email</dt>
-                    <dd><a href="mailto:hello@booknest.test" class="text-blue-700 hover:text-blue-800">hello@booknest.test</a></dd>
+                    <dd><a href="mailto:hello@projectlibraryvi.test" class="text-blue-700 hover:text-blue-800">hello@projectlibraryvi.test</a></dd>
                 </div>
                 <div>
                     <dt class="font-semibold">Phone</dt>

@@ -1,7 +1,8 @@
 <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
     <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="{{ route('public.home') }}" class="font-display text-2xl font-bold tracking-tight text-slate-900">
-            BookNest
+        <a href="{{ route('public.home') }}" class="flex items-center gap-3 font-display text-2xl font-bold tracking-tight text-slate-900">
+            <img src="{{ asset('logo.svg') }}" alt="Logo Project Library VI" class="h-10 w-10 rounded-lg object-contain">
+            <span>Project Library VI</span>
         </a>
 
         <nav class="hidden items-center gap-2 text-sm font-semibold text-slate-700 md:flex md:gap-4">

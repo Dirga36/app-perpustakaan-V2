@@ -3,13 +3,13 @@
 Build a complete guest-facing portal in English with 4 pages: home, book catalog, book detail, and about/contact. Reuse existing Book/Category data and relationships, show only non-soft-deleted books, and keep reading behavior as metadata preview only (no PDF reader/download yet).
 
 **Steps**
-1. Phase 1: Foundation and routing  
+Phase 1: Foundation and routing  
 1. Add public routes in [routes/web.php](routes/web.php) for `/`, `/books`, `/books/{book}`, `/about` with stable names like `public.home`, `public.books.index`, `public.books.show`, `public.about`.  
 2. Create public controllers (for home and books) under [app/Http/Controllers](app/Http/Controllers) to separate landing logic from catalog/detail logic.  
 3. Create a dedicated public layout and reusable nav/footer components in [resources/views/layouts](resources/views/layouts) and [resources/views/components](resources/views/components).  
 Dependency note: steps 2 and 3 can run in parallel after route design is fixed.
 
-2. Phase 2: Query behavior and page data  
+Phase 2: Query behavior and page data  
 1. Implement catalog query in books index:
 1. Base query loads category relation and excludes soft-deleted records by default.
 2. Add search across title, author, ISBN; category filter; and basic sort.
@@ -23,19 +23,19 @@ Dependency note: steps 2 and 3 can run in parallel after route design is fixed.
 2. Lightweight stats (books count, categories count).
 3. CTA to catalog.
 
-3. Phase 3: Public views (English UI)  
+Phase 3: Public views (English UI)  
 1. Refactor [resources/views/welcome.blade.php](resources/views/welcome.blade.php) into the public home page using the new public layout.  
 2. Create catalog view in [resources/views](resources/views) with search/filter/sort/pagination and empty state.  
 3. Create detail view in [resources/views](resources/views) showing full metadata plus placeholder “Read” area.  
 4. Create about/contact static page in [resources/views](resources/views).
 
-4. Phase 4: UX consistency and hardening  
+Phase 4: UX consistency and hardening  
 1. Ensure desktop/mobile nav is usable and consistent.  
 2. Keep visual style aligned with current brand color direction while making it feel like a real portal, not a one-page landing.  
 3. Validate and sanitize query params for search/filter/sort.  
 4. Confirm all user-facing text is English.
 
-5. Phase 5: Testing and QA  
+Phase 5: Testing and QA  
 1. Add feature tests for:
 1. Home/catalog/detail/about return expected status.
 2. Catalog search/filter behavior.
@@ -76,5 +76,3 @@ Dependency note: steps 2 and 3 can run in parallel after route design is fixed.
 1. Public auth, bookmarking, rating/reviews.
 2. New DB publish/featured fields.
 3. PDF reader/download and external search engine.
-
-I also saved this plan to session memory at /memories/session/plan.md for handoff continuity. If you want, I can refine this into a “Phase 1 only” quick-delivery variant next.

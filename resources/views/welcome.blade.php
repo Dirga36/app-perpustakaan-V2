@@ -3,7 +3,7 @@
         <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
                 <p class="mb-3 inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-blue-800">
-                    Welcome to BookNest
+                    Welcome to Project Library VI
                 </p>
                 <h1 class="font-display text-4xl font-bold leading-tight text-slate-900 sm:text-5xl">
                     Find your next favorite book in a focused, clean public catalog.
