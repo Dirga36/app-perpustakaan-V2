@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('publishedYear');
             $table->string('coverImage');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->string('slug')->unique();             // Versi URL-friendly (dibuat otomatis)
             $table->timestamps();
             $table->softDeletes();
         });
