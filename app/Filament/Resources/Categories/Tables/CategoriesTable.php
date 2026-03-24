@@ -35,9 +35,9 @@ class CategoriesTable
                 //
             ])
             ->recordActions([
-                ViewAction::make(),   // Tombol untuk melihat detail
-                EditAction::make(),   // Tombol untuk mengedit
-                DeleteAction::make(), // Tombol untuk menghapus
+                ViewAction::make(),   // Button to view details
+                EditAction::make(),   // Button to edit
+                DeleteAction::make(), // Button to delete
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

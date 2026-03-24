@@ -14,7 +14,7 @@ class Category extends Model
     protected static function booted(): void
     {
         static::saving(function (Category $category): void {
-            // Slug kategori selalu mengikuti nama kategori.
+            // Category slug always follows the category name.
             if (blank($category->name)) {
                 return;
             }
@@ -27,20 +27,20 @@ class Category extends Model
         });
     }
 
-    // Relasi: satu kategori dapat memiliki banyak buku.
+    // Relation: one category can have many books.
     public function books()
     {
         return $this->hasMany(Book::class);
     }
 
-    // Atribut yang boleh diisi melalui mass assignment.
+    // Attributes that can be filled through mass assignment.
     protected $fillable = [
         'name',
-        'slug',         // Versi URL-friendly dari nama (dibuat otomatis)
+        'slug',         // URL-friendly version of name (created automatically)
     ];
 
     /**
-     * Membuat slug unik berbasis nama kategori.
+     * Generate a unique slug based on the category name.
      */
     protected function generateUniqueSlug(string $name): string
     {
@@ -50,7 +50,7 @@ class Category extends Model
         $slug = $baseSlug;
         $counter = 2;
 
-        // Cek termasuk data soft-deleted agar slug kategori tetap unik.
+        // Check including soft-deleted data to ensure category slug remains unique.
         while (static::withTrashed()
             ->where('slug', $slug)
             ->whereKeyNot($this->getKey())

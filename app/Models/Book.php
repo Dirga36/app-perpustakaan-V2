@@ -14,7 +14,7 @@ class Book extends Model
     protected static function booted(): void
     {
         static::saving(function (Book $book): void {
-            // Slug selalu disinkronkan dari judul buku agar URL tetap konsisten.
+            // Slug is always synchronized from book title to keep URLs consistent.
             if (blank($book->title)) {
                 return;
             }
@@ -27,13 +27,13 @@ class Book extends Model
         });
     }
 
-    // Relasi: setiap buku berada pada satu kategori.
+    // Relation: each book belongs to one category.
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    // Atribut yang boleh diisi melalui mass assignment.
+    // Attributes that can be filled through mass assignment.
     protected $fillable = [
         'title',
         'authorName',
@@ -41,11 +41,11 @@ class Book extends Model
         'publishedYear',
         'coverImage',
         'category_id',
-        'slug',         // Versi URL-friendly dari nama (dibuat otomatis)
+        'slug',         // URL-friendly version of name (created automatically)
     ];
 
     /**
-     * Menjadikan slug sebagai route key untuk URL detail buku.
+     * Make slug the route key for book detail URLs.
      */
     public function getRouteKeyName(): string
     {
@@ -53,7 +53,7 @@ class Book extends Model
     }
 
     /**
-     * Membuat slug unik berbasis judul buku.
+     * Generate a unique slug based on the book title.
      */
     protected function generateUniqueSlug(string $title): string
     {
@@ -63,7 +63,7 @@ class Book extends Model
         $slug = $baseSlug;
         $counter = 2;
 
-        // Cek termasuk data soft-deleted agar slug benar-benar unik.
+        // Check including soft-deleted data to ensure slug is truly unique.
         while (static::withTrashed()
             ->where('slug', $slug)
             ->whereKeyNot($this->getKey())

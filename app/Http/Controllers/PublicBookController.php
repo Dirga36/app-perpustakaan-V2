@@ -10,14 +10,14 @@ class PublicBookController extends Controller
 {
     public function index(Request $request)
     {
-        // Daftar opsi urutan yang diizinkan dari query string.
+        // List of allowed sorting options from the query string.
         $allowedSorts = ['latest', 'oldest', 'title_asc', 'title_desc', 'year_desc', 'year_asc'];
 
-        // Normalisasi kata kunci agar konsisten dan batasi panjang input.
+        // Normalize search keyword for consistency and limit input length.
         $search = preg_replace('/\s+/', ' ', trim((string) $request->query('search', '')));
         $search = mb_substr($search ?? '', 0, 120);
 
-        // Pastikan filter kategori hanya menerima angka id valid.
+        // Ensure category filter only accepts valid numeric IDs.
         $categoryInput = filter_var(
             $request->query('category'),
             FILTER_VALIDATE_INT,
@@ -30,14 +30,14 @@ class PublicBookController extends Controller
             $selectedCategory = null;
         }
 
-        // Fallback ke urutan default jika nilai sort tidak dikenal.
+        // Fallback to default sorting if sort value is unknown.
         $sort = (string) $request->query('sort', 'latest');
 
         if (! in_array($sort, $allowedSorts, true)) {
             $sort = 'latest';
         }
 
-        // Bangun query dinamis berdasarkan pencarian dan kategori.
+        // Build dynamic query based on search and category.
         $booksQuery = Book::query()
             ->with('category')
             ->when($search !== '', function ($query) use ($search) {
@@ -52,7 +52,7 @@ class PublicBookController extends Controller
                 $query->where('category_id', $selectedCategory);
             });
 
-        // Terapkan strategi sorting sesuai opsi pengguna.
+        // Apply sorting strategy according to user preference.
         $booksQuery = match ($sort) {
             'oldest' => $booksQuery->oldest(),
             'title_asc' => $booksQuery->orderBy('title'),
@@ -62,12 +62,12 @@ class PublicBookController extends Controller
             default => $booksQuery->latest(),
         };
 
-        // Pagination mempertahankan query string agar filter tetap aktif.
+        // Pagination preserves query string to keep filters active.
         $books = $booksQuery
             ->paginate(12)
             ->withQueryString();
 
-        // Data kategori dipakai untuk dropdown filter pada halaman katalog.
+        // Category data is used for dropdown filter on the catalog page.
         $categories = Category::query()
             ->orderBy('name')
             ->get();
@@ -83,10 +83,10 @@ class PublicBookController extends Controller
 
     public function show(Book $book)
     {
-        // Muat relasi kategori untuk informasi detail buku.
+        // Load category relation for book detail information.
         $book->load('category');
 
-        // Ambil rekomendasi buku serupa dari kategori yang sama.
+        // Fetch similar book recommendations from the same category.
         $relatedBooks = Book::query()
             ->with('category')
             ->where('category_id', $book->category_id)

@@ -9,14 +9,14 @@ class PublicHomeController extends Controller
 {
     public function index()
     {
-        // Ambil buku terbaru untuk ditampilkan di hero/section unggulan.
+        // Fetch the latest books to display in the hero/featured section.
         $latestBooks = Book::query()
             ->with('category')
             ->latest()
             ->take(6)
             ->get();
 
-        // Kirim ringkasan statistik katalog ke halaman depan.
+        // Send catalog statistics summary to the home page.
         return view('welcome', [
             'latestBooks' => $latestBooks,
             'totalBooks' => Book::count(),
@@ -26,7 +26,7 @@ class PublicHomeController extends Controller
 
     public function about()
     {
-        // Tampilkan halaman statis tentang aplikasi perpustakaan.
+        // Display the static page about the library application.
         return view('public-portal.about');
     }
 }
