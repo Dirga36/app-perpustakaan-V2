@@ -1,4 +1,4 @@
-<x-layouts.public :title="$book->title">
+<x-layouts.public-portal :title="$book->title">
     <a href="{{ route('public.books.index') }}" class="mb-5 inline-flex text-sm font-bold text-slate-700 hover:text-blue-700">
         ← Back to catalog
     </a>
@@ -59,4 +59,4 @@
             </div>
         @endif
     </section>
-</x-layouts.public>
+</x-layouts.public-portal>

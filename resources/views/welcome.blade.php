@@ -1,4 +1,4 @@
-<x-layouts.public title="Home">
+<x-layouts.public-portal title="Home">
     <section class="mb-10 overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-7 shadow-sm sm:p-10">
         <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
@@ -80,4 +80,4 @@
             </div>
         @endif
     </section>
-</x-layouts.public>
+</x-layouts.public-portal>

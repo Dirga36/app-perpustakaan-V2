@@ -1,4 +1,4 @@
-<x-layouts.public title="Book Catalog">
+<x-layouts.public-portal title="Book Catalog">
     <section class="mb-7 rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm sm:p-8">
         <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
             <div>
@@ -74,4 +74,4 @@
             {{ $books->links() }}
         </div>
     @endif
-</x-layouts.public>
+</x-layouts.public-portal>

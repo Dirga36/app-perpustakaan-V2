@@ -1,4 +1,4 @@
-<x-layouts.public title="About & Contact">
+<x-layouts.public-portal title="About & Contact">
     <section class="mb-8 rounded-3xl border border-slate-200/70 bg-white/80 p-7 shadow-sm sm:p-10">
         <p class="mb-3 inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-blue-800">
             About this portal
@@ -42,4 +42,4 @@
             </dl>
         </article>
     </section>
-</x-layouts.public>
+</x-layouts.public-portal>

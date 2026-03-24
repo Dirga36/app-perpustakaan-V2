@@ -27,11 +27,13 @@ class Book extends Model
         });
     }
 
+    // Relasi: setiap buku berada pada satu kategori.
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
+    // Atribut yang boleh diisi melalui mass assignment.
     protected $fillable = [
         'title',
         'authorName',
@@ -61,6 +63,7 @@ class Book extends Model
         $slug = $baseSlug;
         $counter = 2;
 
+        // Cek termasuk data soft-deleted agar slug benar-benar unik.
         while (static::withTrashed()
             ->where('slug', $slug)
             ->whereKeyNot($this->getKey())

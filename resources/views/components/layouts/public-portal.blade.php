@@ -41,13 +41,13 @@
 
 <body class="min-h-screen antialiased">
     <div class="relative">
-        <x-public-nav />
+        <x-public-portal-nav />
 
         <main class="mx-auto w-full max-w-6xl px-4 pb-14 pt-8 sm:px-6 lg:px-8">
             {{ $slot }}
         </main>
 
-        <x-public-footer />
+        <x-public-portal-footer />
     </div>
 </body>
 

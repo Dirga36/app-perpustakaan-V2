@@ -27,11 +27,13 @@ class Category extends Model
         });
     }
 
+    // Relasi: satu kategori dapat memiliki banyak buku.
     public function books()
     {
         return $this->hasMany(Book::class);
     }
 
+    // Atribut yang boleh diisi melalui mass assignment.
     protected $fillable = [
         'name',
         'slug',         // Versi URL-friendly dari nama (dibuat otomatis)
@@ -48,6 +50,7 @@ class Category extends Model
         $slug = $baseSlug;
         $counter = 2;
 
+        // Cek termasuk data soft-deleted agar slug kategori tetap unik.
         while (static::withTrashed()
             ->where('slug', $slug)
             ->whereKeyNot($this->getKey())
