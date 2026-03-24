@@ -309,10 +309,6 @@ Tests are located in the `tests/` directory. Use the included factories (`BookFa
 - Follows Filament's resource pattern for scalability and maintainability
 - Form validation rules defined at resource level
 
-### Comments in Indonesian
-- All source code comments and docstrings follow the project language convention (Indonesian)
-- Makes the codebase accessible to learners in the target region
-
 ---
 
 ## Resources
