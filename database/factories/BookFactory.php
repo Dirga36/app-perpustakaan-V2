@@ -7,7 +7,7 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
+ * @extends Factory<Book>
  */
 class BookFactory extends Factory
 {
@@ -20,7 +20,7 @@ class BookFactory extends Factory
             'authorName' => fake()->name(),
             'ISBN' => fake()->unique()->numerify('978##########'),
             'publishedYear' => (string) fake()->numberBetween(1990, (int) now()->format('Y')),
-            'coverImage' => 'covers/' . fake()->uuid() . '.jpg',
+            'coverImage' => 'covers/'.fake()->uuid().'.jpg',
             'category_id' => Category::factory(),
         ];
     }

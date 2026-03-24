@@ -8,7 +8,7 @@ This project is a library management system with two main interfaces:
 ## This project uses Laravel as the main framework
 
 ## Commenting & Documentation
-- All comment in source codes should be written in Indonesian
+- All comments in source codes should be written in Indonesian
 
 ## Conventional Commits Message
 

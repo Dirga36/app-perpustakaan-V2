@@ -52,7 +52,7 @@ class BooksTable
                 ViewAction::make(),   // Tombol untuk melihat detail
                 EditAction::make(),   // Tombol untuk mengedit
                 DeleteAction::make(), // Tombol untuk menghapus
-           ])
+            ])
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),

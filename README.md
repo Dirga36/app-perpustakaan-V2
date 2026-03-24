@@ -5,9 +5,9 @@ Proyek aplikasi perpustakaan. Digunakan untuk keperluan latihan ujikom.
 ## Getting Started
 
 ### Dependensi
-- [NodeJS 22](https://nodejs.org)
-- [Composer 2.8](https://getcomposer.org)
-- [PHP 8](https://www.php.net/)
+- [NodeJS](https://nodejs.org)
+- [Composer](https://getcomposer.org)
+- [PHP](https://www.php.net/)
 
 ### 1. Install dependensi
 
@@ -33,10 +33,11 @@ php artisan key:generate
 php artisan migrate
 ```
 
-### 4. Jalankan development server
+### 4. Jalankan development server pada 2 terminal terpisah
 
 ```powershell
-composer run dev
+php artisan serve
+npm run dev
 ```
 
 Buka <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> Dengan browser untuk melihat _public portal_.

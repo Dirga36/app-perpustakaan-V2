@@ -52,7 +52,7 @@ class Category extends Model
             ->where('slug', $slug)
             ->whereKeyNot($this->getKey())
             ->exists()) {
-            $slug = $baseSlug . '-' . $counter;
+            $slug = $baseSlug.'-'.$counter;
             $counter++;
         }
 
