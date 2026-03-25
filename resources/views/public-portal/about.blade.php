@@ -23,21 +23,21 @@
         <article class="card-frost rounded-3xl p-6 sm:p-8">
             <h2 class="font-display text-2xl font-bold text-slate-900">Contact</h2>
             <p class="mt-2 text-sm text-slate-600">
-                Questions, corrections, or catalog requests are welcome.
+                Questions or corrections are welcome.
             </p>
 
             <dl class="mt-5 space-y-3 text-sm text-slate-700">
                 <div>
                     <dt class="font-semibold">Email</dt>
-                    <dd><a href="mailto:hello@projectlibraryvi.test" class="text-blue-700 hover:text-blue-800">hello@projectlibraryvi.test</a></dd>
+                    <dd><a href="mailto:workfuad369@gmail.com" class="text-blue-700 hover:text-blue-800">workfuad369@gmail.com</a></dd>
                 </div>
                 <div>
                     <dt class="font-semibold">Phone</dt>
-                    <dd>+62 21 555 0101</dd>
+                    <dd>+62 895 1969 2875</dd>
                 </div>
                 <div>
                     <dt class="font-semibold">Address</dt>
-                    <dd>Jl. Pustaka Raya No. 25, Jakarta</dd>
+                    <dd>Jl. R.A.A Wiranata Kusumah 17, Bandung</dd>
                 </div>
             </dl>
         </article>

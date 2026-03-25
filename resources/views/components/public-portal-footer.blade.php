@@ -3,8 +3,8 @@
         <p>© {{ now()->year }} Project Library VI Public Portal.</p>
         <p>
             Need help? Reach us via
-            <a href="mailto:hello@projectlibraryvi.test" class="font-semibold text-blue-700 hover:text-blue-800">
-                hello@projectlibraryvi.test
+            <a href="mailto:workfuad369@gmail.com" class="font-semibold text-blue-700 hover:text-blue-800">
+                workfuad369@gmail.com
             </a>
         </p>
     </div>

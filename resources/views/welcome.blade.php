@@ -57,6 +57,19 @@
         @else
             <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($latestBooks as $book)
+                    {{--
+                        Determine the book cover image URL based on whether it's already a full URL or a local storage path.
+                        
+                        Logic:
+                        - Checks if the coverImage starts with 'http://' or 'https://' (external/full URL)
+                        - If true: uses the coverImage directly (already a complete URL)
+                        - If false: constructs a local storage path using asset() helper and prepends 'storage/'
+                        - ltrim() removes any leading forward slashes from the path to avoid double slashes
+                        
+                        Result:
+                        - $coverUrl will contain a valid, usable URL for the book cover image
+                        - Whether sourced from external URL or local storage directory
+                    --}}
                     @php
                         $coverUrl = str_starts_with($book->coverImage, 'http://') || str_starts_with($book->coverImage, 'https://')
                             ? $book->coverImage
