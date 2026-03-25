@@ -31,7 +31,8 @@ class BooksTable
                     ->label('Published Year')
                     ->searchable(),
                 ImageColumn::make('coverImage')
-                    ->label('Cover Image'),
+                    ->label('Cover Image')
+                    ->disk('public'),
                 TextColumn::make('category.name')
                     ->label('Category')
                     ->searchable()
