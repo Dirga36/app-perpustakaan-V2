@@ -323,6 +323,14 @@ Tests are located in the `tests/` directory. Use the included factories (`BookFa
 
 ---
 
+## Contributors
+
+- [Rian Ardiansyah](https://github.com/IannxGusion)
+- Angga Ferdianto
+- Jian Safitri
+
+```
+
 ## Notes
 
 **Why "V2"?**
